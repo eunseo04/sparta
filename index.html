@@ -105,7 +105,11 @@
         let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
         fetch(url).then(res => res.json()).then(data => {
             let temp = data['temp'];
-            $('#temperature').text(temp);
+            if (temp > 20) {
+                $('#temperature').text('더워요');
+            }else{
+                $('#temperature').text('추워요');
+            }
         })
 
         $("#savebtn").click(async function () {
@@ -153,7 +157,7 @@
                     <li><a href="#" class="nav-link px-2 text-white">시리즈</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">영화</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">내가 찜한 콘텐츠</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">현재기온 : <span id="temperature"></span>도</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">현재기온 : <span id="temperature"></span></a></li>
                 </ul>
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search"> <input type="search"
                         class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
